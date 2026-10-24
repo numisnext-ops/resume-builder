@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Free Resume Builder</title>
+<style>
+  :root{--navy:#14213d;--blue:#2563eb;--ink:#1f2937;--muted:#64748b;--line:#e2e8f0;--bg:#f5f7fb;--white:#fff}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:linear-gradient(120deg,#14213d,#1d4ed8);color:#fff;padding:28px 20px}
+  .header-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-size:1.25rem;font-weight:800;letter-spacing:.2px}.brand span{color:#93c5fd}.tagline{margin:4px 0 0;color:#dbeafe;font-size:.94rem}
+  .free-pill{border:1px solid #93c5fd;border-radius:999px;padding:7px 13px;font-size:.85rem;font-weight:700}
+  main{max-width:1180px;margin:28px auto;padding:0 18px 44px}.intro{margin-bottom:22px}.intro h1{margin:0 0 6px;font-size:clamp(1.6rem,3vw,2.15rem);color:var(--navy)}.intro p{margin:0;color:var(--muted)}
+  .layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(330px,.9fr);gap:22px;align-items:start}
+  .panel{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:0 6px 24px rgba(15,23,42,.04);overflow:hidden}.panel-head{padding:18px 22px;border-bottom:1px solid var(--line)}.panel-head h2{font-size:1.1rem;margin:0;color:var(--navy)}.panel-head p{margin:4px 0 0;color:var(--muted);font-size:.88rem}.form-body{padding:22px}
+  fieldset{border:0;padding:0;margin:0 0 24px}legend{width:100%;font-weight:800;color:var(--navy);font-size:1rem;padding-bottom:10px;margin-bottom:13px;border-bottom:1px solid #edf2f7}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-size:.87rem;font-weight:650;color:#334155}input,textarea,select{width:100%;font:inherit;font-size:.92rem;padding:11px 12px;border:1px solid #cbd5e1;border-radius:9px;background:#fff;color:var(--ink);outline:none}input:focus,textarea:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)}textarea{resize:vertical;min-height:92px}small.help{font-size:.78rem;color:var(--muted)}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;padding-top:3px}.btn{border:0;border-radius:10px;padding:12px 16px;font-weight:750;font-size:.92rem;cursor:pointer}.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:#1d4ed8}.btn-secondary{background:#eff6ff;color:#1d4ed8}.btn-plain{background:#f1f5f9;color:#334155}.privacy{font-size:.8rem;color:var(--muted);margin:13px 0 0}
+  .preview-wrap{position:sticky;top:18px}.preview-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.preview-top .panel-head{flex:1}.preview{padding:28px 26px;min-height:520px;background:#fff;color:#1f2937}.resume-name{font-size:1.75rem;line-height:1.2;color:#14213d;margin:0 0 5px;overflow-wrap:anywhere}.resume-title{color:#2563eb;font-weight:700;margin-bottom:12px}.contact-line{font-size:.8rem;color:#475569;overflow-wrap:anywhere}.resume-section{margin-top:23px}.resume-section h3{font-size:.83rem;letter-spacing:1.3px;text-transform:uppercase;color:#1d4ed8;border-bottom:1px solid #dbeafe;padding-bottom:6px;margin:0 0 9px}.resume-section p{font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}.resume-section .entry-title{font-weight:750;font-size:.9rem}.resume-section .entry-meta{color:#64748b;font-size:.8rem;margin:1px 0 6px}.skill-list{display:flex;flex-wrap:wrap;gap:7px}.skill{background:#eff6ff;color:#1e40af;border-radius:6px;padding:4px 8px;font-size:.78rem}.empty{color:#94a3b8;font-style:italic}.notice{display:none;margin:0 0 14px;padding:10px 12px;background:#ecfdf5;color:#065f46;border-radius:8px;font-size:.86rem}
+  footer{text-align:center;padding:18px;color:#64748b;font-size:.8rem}
+  @media(max-width:850px){.layout{grid-template-columns:1fr}.preview-wrap{position:static}.preview{min-height:400px}}
+  @media(max-width:540px){main{padding:0 12px 28px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.form-body{padding:17px}.preview{padding:22px 18px}.header-inner{align-items:flex-start}}
+  @media print{body{background:#fff}.no-print,header,.intro,.form-panel,footer,.panel-head{display:none!important}main{margin:0;padding:0;max-width:none}.layout{display:block}.preview-wrap{position:static}.panel{border:0;box-shadow:none}.preview{padding:0;min-height:0}.resume-name{font-size:26pt}.resume-section{break-inside:avoid}.resume-section h3{color:#111;border-color:#aaa}.skill{background:#f1f5f9;color:#111}}
+</style>
+</head>
+<body>
+<header class="no-print"><div class="header-inner"><div><div class="brand">Numis<span>Next</span> Careers</div><p class="tagline">Build your future, one resume at a time.</p></div><div class="free-pill">100% FREE RESUME BUILDER</div></div></header>
+<main>
+  <div class="intro no-print"><h1>Create your professional resume</h1><p>Fill in your details and watch your resume update instantly. When you’re ready, print or save it as a PDF.</p></div>
+  <div class="layout">
+    <section class="panel form-panel no-print">
+      <div class="panel-head"><h2>Your information</h2><p>Fields marked * are recommended. You can leave optional fields blank.</p></div>
+      <form class="form-body" id="resumeForm">
+        <fieldset><legend>01 · Personal details</legend><div class="fields">
+          <div class="field"><label for="name">Full name *</label><input id="name" name="name" required placeholder="e.g. Anjali Nair" /></div>
+          <div class="field"><label for="jobTitle">Target job title</label><input id="jobTitle" name="jobTitle" placeholder="e.g. Software Developer" /></div>
+          <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" required placeholder="you@example.com" /></div>
+          <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" /></div>
+          <div class="field"><label for="city">City / Location</label><input id="city" name="city" placeholder="Kochi, Kerala" /></div>
+          <div class="field"><label for="linkedin">LinkedIn / Portfolio</label><input id="linkedin" name="linkedin" type="url" placeholder="https://..." /></div>
+        </div></fieldset>
+        <fieldset><legend>02 · Professional summary</legend><div class="fields"><div class="field full"><label for="summary">About you</label><textarea id="summary" name="summary" placeholder="Briefly describe your experience, strengths and career goals."></textarea></div></div></fieldset>
+        <fieldset><legend>03 · Education</legend><div class="fields">
+          <div class="field"><label for="degree">Degree / Qualification</label><input id="degree" name="degree" placeholder="e.g. B.Com, B.Tech, MBA" /></div>
+          <div class="field"><label for="institution">Institution</label><input id="institution" name="institution" placeholder="College or university" /></div>
+          <div class="field"><label for="gradYear">Year of completion</label><input id="gradYear" name="gradYear" placeholder="e.g. 2025" /></div>
+          <div class="field"><label for="grade">Grade / Percentage (optional)</label><input id="grade" name="grade" placeholder="e.g. 82%" /></div>
+        </div></fieldset>
+        <fieldset><legend>04 · Work experience</legend><div class="fields">
+          <div class="field"><label for="role">Job title</label><input id="role" name="role" placeholder="e.g. Sales Executive" /></div>
+          <div class="field"><label for="company">Company</label><input id="company" name="company" placeholder="Company name" /></div>
+          <div class="field full"><label for="duration">Duration</label><input id="duration" name="duration" placeholder="e.g. Jan 2023 – Present" /></div>
+          <div class="field full"><label for="responsibilities">Responsibilities / achievements</label><textarea id="responsibilities" name="responsibilities" placeholder="Add key duties, achievements or measurable results. Use a new line for each point."></textarea></div>
+        </div><small class="help">Fresher? Leave this section blank and highlight your education, skills and projects.</small></fieldset>
+        <fieldset><legend>05 · Skills & additional details</legend><div class="fields">
+          <div class="field full"><label for="skills">Skills</label><textarea id="skills" name="skills" placeholder="e.g. Excel, HTML, Communication, Teamwork"></textarea><small class="help">Separate skills with commas or new lines.</small></div>
+          <div class="field full"><label for="projects">Projects / Certifications</label><textarea id="projects" name="projects" placeholder="Project or certificate name — brief details"></textarea></div>
+          <div class="field full"><label for="languages">Languages</label><input id="languages" name="languages" placeholder="e.g. Malayalam, English, Hindi" /></div>
+        </div></fieldset>
+        <div class="actions"><button class="btn btn-primary" type="button" id="downloadBtn">Print / Save as PDF</button><button class="btn btn-secondary" type="button" id="saveBtn">Save draft on this device</button><button class="btn btn-plain" type="reset" id="resetBtn">Clear form</button></div>
+        <p class="privacy">Demo privacy note: this page does not send information to a server. “Save draft” stores it in this browser on this device only. Add a secure backend and a clear privacy notice before collecting candidate data for your live portal.</p>
+      </form>
+    </section>
+    <section class="panel preview-wrap">
+      <div class="preview-top no-print"><div class="panel-head"><h2>Live resume preview</h2><p>Your resume updates as you type.</p></div></div>
+      <div class="preview" id="resumePreview" aria-live="polite">
+        <h2 class="resume-name" id="p-name">Your Name</h2><div class="resume-title" id="p-title">Your Target Job Title</div><div class="contact-line" id="p-contact">Email · Phone · Location</div><div class="contact-line" id="p-link"></div>
+        <section class="resume-section" id="summarySection"><h3>Professional Summary</h3><p id="p-summary" class="empty">Your professional summary will appear here.</p></section>
+        <section class="resume-section" id="experienceSection"><h3>Work Experience</h3><p class="entry-title" id="p-role"></p><p class="entry-meta" id="p-company"></p><p id="p-responsibilities" class="empty">Add your experience above, or leave blank if you are a fresher.</p></section>
+        <section class="resume-section" id="educationSection"><h3>Education</h3><p class="entry-title" id="p-degree" class="empty">Your qualification</p><p class="entry-meta" id="p-education-meta"></p></section>
+        <section class="resume-section" id="skillsSection"><h3>Skills</h3><div class="skill-list" id="p-skills"><span class="empty">Your skills will appear here.</span></div></section>
+        <section class="resume-section" id="projectsSection"><h3>Projects & Certifications</h3><p id="p-projects" class="empty">Add projects or certifications if you have them.</p></section>
+        <section class="resume-section" id="languagesSection"><h3>Languages</h3><p id="p-languages" class="empty">Add languages you speak.</p></section>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="no-print">A simple first step toward your career. Create your resume for free.</footer>
+<script>
+const form = document.getElementById('resumeForm');
+const get = id => document.getElementById(id).value.trim();
+const setText = (id, text, placeholder='') => { const el=document.getElementById(id); el.textContent=text || placeholder; el.classList.toggle('empty', !text); };
+function updatePreview(){
+  setText('p-name',get('name'),'Your Name'); setText('p-title',get('jobTitle'),'Your Target Job Title');
+  const contact=[get('email'),get('phone'),get('city')].filter(Boolean).join(' · '); setText('p-contact',contact,'Email · Phone · Location');
+  setText('p-link',get('linkedin'));
+  setText('p-summary',get('summary'),'Your professional summary will appear here.');
+  setText('p-role',get('role')); setText('p-company',[get('company'),get('duration')].filter(Boolean).join(' · '));
+  setText('p-responsibilities',get('responsibilities'),'Add your experience above, or leave blank if you are a fresher.');
+  setText('p-degree',get('degree'),'Your qualification'); setText('p-education-meta',[get('institution'),get('gradYear'),get('grade')].filter(Boolean).join(' · '));
+  const skills=get('skills').split(/[\n,;]+/).map(s=>s.trim()).filter(Boolean); const skillBox=document.getElementById('p-skills'); skillBox.replaceChildren();
+  if(skills.length){skills.forEach(s=>{const span=document.createElement('span');span.className='skill';span.textContent=s;skillBox.appendChild(span);});}else{const span=document.createElement('span');span.className='empty';span.textContent='Your skills will appear here.';skillBox.appendChild(span);}
+  setText('p-projects',get('projects'),'Add projects or certifications if you have them.'); setText('p-languages',get('languages'),'Add languages you speak.');
+}
+form.addEventListener('input',updatePreview);
+document.getElementById('downloadBtn').addEventListener('click',()=>{if(!get('name')){document.getElementById('name').focus();alert('Please enter your full name before printing your resume.');return;}window.print();});
+document.getElementById('saveBtn').addEventListener('click',()=>{const data={};new FormData(form).forEach((v,k)=>data[k]=v);try{localStorage.setItem('freeResumeDraft',JSON.stringify(data));alert('Draft saved in this browser on this device.');}catch(e){alert('Could not save draft in this browser. You can still print or save your resume as PDF.');}});
+function restoreDraft(){try{const saved=localStorage.getItem('freeResumeDraft');if(saved){const data=JSON.parse(saved);Object.entries(data).forEach(([k,v])=>{const el=form.elements.namedItem(k);if(el)el.value=v;});}}catch(e){}updatePreview();}
+document.getElementById('resetBtn').addEventListener('click',()=>{setTimeout(()=>{localStorage.removeItem('freeResumeDraft');updatePreview();},0);});
+restoreDraft();
+</script>
+</body>
+</html>
